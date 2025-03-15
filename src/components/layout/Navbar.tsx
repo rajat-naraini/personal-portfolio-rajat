@@ -19,10 +19,10 @@ const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 px-4 py-4 ">
       <div className="container mx-auto">
-        <nav  className="bg-black text-white rounded-2xl px-6 py-4 shadow-lg flex justify-between items-center border border-emerald-500/40 shadow-[0_0_0_1px_rgba(75,85,99,0.3)]">
+        <nav  className="bg-black text-white rounded-2xl px-6 py-4 shadow-lg flex justify-between items-center border border-green-500/40 shadow-[0_0_0_1px_rgba(75,85,99,0.3)]">
           {/* Logo */}
           <Link to="/" className="text-xl  flex items-center">
-            <span className="text-2xl text-emerald-300 figtree-light">&lt;&gt;</span>
+            <span className="text-2xl text-green-300 figtree-light">&lt;&gt;</span>
             <span className="ml-2">RAJAT NARAINI</span>
           </Link>
 
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
                 to={link.path}
                 className={`${
                   location.pathname === link.path
-                    ? 'text-emerald-400 font-medium'
+                    ? 'text-green-400 font-medium'
                     : 'text-gray-300 hover:text-white'
                 } transition-colors`}
               >
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                   to={link.path}
                   className={`py-2 px-4 rounded-xl ${
                     location.pathname === link.path
-                      ? 'bg-gray-700 text-emerald-500'
+                      ? 'bg-gray-700 text-green-500'
                       : 'text-gray-300 hover:bg-gray-700'
                   } transition-colors`}
                   onClick={() => setIsMenuOpen(false)}

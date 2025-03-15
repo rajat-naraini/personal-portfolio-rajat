@@ -25,13 +25,13 @@ const Footer: React.FC = () => {
 
           {/* Social Icons */}
           <div className="flex items-center space-x-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <a href="https://github.com/rajat-naraini" target='_blank' className="hover:text-gray-300 transition-colors">
               <Github size={24} />
             </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <a href="https://linkedin.com/in/rajat-naraini" target='_blank' className="hover:text-gray-300 transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <a href="https://instagram.com/rajatnaraini" target='_blank' className="hover:text-gray-300 transition-colors">
               <Instagram size={24} />
             </a>
             
