@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+html {
+  zoom: 90%;
+}
 .fira-code-regular {
   font-family: "Fira Code", monospace;
   font-optical-sizing: auto;

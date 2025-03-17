@@ -1,11 +1,11 @@
-// src/pages/Home.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HomePage.css';
+import './styles/HeroSection.css';
 
-const Home: React.FC = () => {
+
+const HeroSection: React.FC = () => {
   return (
-    <div className="min-h-screen bg-black text-white pt-12 pb-16">
+    <div className="min-h-[92vh] bg-black text-white pt-20 pb-3">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Image with diamond shape */}
@@ -44,10 +44,10 @@ const Home: React.FC = () => {
               <span className="text-red-400">&lt;p&gt;</span> 
               With over {new Date().getFullYear() - 2020} years of experience in cutting-edge technologies such as
               <span className="text-red-400"> Angular, React/Next.js, Node.js, </span> 
-              <br/>
+              {/* <br/> */}
               <span className="text-red-400">Java Spring Boot, .NET Core </span>
               <span> and </span>
-              <span className="text-red-400">PostgreSQL with AWS Cloud </span> <br />
+              <span className="text-red-400">PostgreSQL with AWS Cloud</span>. 
                 <span> I build reliable web applications that deliver exceptional digital experiences.</span>
               {/* <br/> */}
               {/* <span>solutions that are both innovative and robust.</span>  */}
@@ -58,15 +58,15 @@ const Home: React.FC = () => {
             {/* Technology icons */}
             <div className="flex items-center">
                 <div className="flex gap-2">
-                <img src="/assets/icons/angular.png" alt="Angular" className="w-8 h-8" />
-                <img src="/assets/icons/react.png" alt="React" className="w-7 h-6 mt-1" />
-                <img src="/assets/icons/nextjs.png" alt="Next.js" className="w-8 h-8" />
-                <img src="/assets/icons/nodejs.png" alt="Node.js" className="w-7 h-8" />
-                <img src="/assets/icons/dotnet.png" alt=".NET Core" className="w-8 h-8" />
-                <img src="/assets/icons/java.png" alt="Java" className="w-8 h-8" />
-                <img src="/assets/icons/springboot.png" alt="Spring Boot" className="w-8 h-8" />
-                <img src="/assets/icons/postgresql.png" alt="PostgreSQL" className="w-8 h-8" />
-                <img src="/assets/icons/aws.png" alt="AWS" className="w-8 h-8" />
+                  <img src="/assets/icons/angular.png" alt="Angular" title="Angular" className="w-8 h-8" />
+                  <img src="/assets/icons/react.png" alt="React" title="React" className="w-7 h-6 mt-1" />
+                  <img src="/assets/icons/nextjs.png" alt="Next.js" title="Next.js" className="w-8 h-8" />
+                  <img src="/assets/icons/nodejs.png" alt="Node.js" title="Node.js" className="w-7 h-8" />
+                  <img src="/assets/icons/dotnet.png" alt=".NET Core" title=".NET Core" className="w-8 h-8" />
+                  <img src="/assets/icons/java.png" alt="Java" title="Java" className="w-8 h-8" />
+                  <img src="/assets/icons/springboot.png" alt="Spring Boot" title="Spring Boot" className="w-8 h-8" />
+                  <img src="/assets/icons/postgresql.png" alt="PostgreSQL" title="PostgreSQL" className="w-8 h-8" />
+                  <img src="/assets/icons/aws.png" alt="AWS" title="AWS" className="w-8 h-8" />
                 </div>
               <span className="text-gray-500 ml-4">... and more</span>
             </div>
@@ -93,4 +93,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HeroSection;
