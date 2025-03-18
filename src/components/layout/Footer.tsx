@@ -42,11 +42,11 @@ const Footer: React.FC = () => {
             <Link to="/about" className="hover:text-gray-300 transition-colors">
               About Me
             </Link>
-            <Link to="/resume" className="hover:text-gray-300 transition-colors">
+            <a href="/path/to/your/resume.pdf" download className="hover:text-gray-300 transition-colors">
               Resume
-            </Link>
-            <Link to="/contacts" className="hover:text-gray-300 transition-colors">
-              Contacts
+            </a>
+            <Link to="/contact" className="hover:text-gray-300 transition-colors">
+              Contact
             </Link>
           </div>
 
