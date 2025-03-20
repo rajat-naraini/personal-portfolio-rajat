@@ -22,7 +22,7 @@ const WorkExperience:React.FC = () => {
         "Deployed the application on AWS Amplify and implemented CI/CD pipelines for automated, efficient build and deployment."
       ],
       technologies: ["Next.js", "Node.js", "AWS", "ShadCN UI", "CI/CD"],
-      projectImage: "/assets/images/projects/clientfinder.jpg",
+      projectImage: "/assets/images/projects/clientfinder-home.png",
       projectName: "ClientFinder"
     },
     {
@@ -38,7 +38,7 @@ const WorkExperience:React.FC = () => {
         "Enhanced system modularity and maintainability by implementing specialized services, strict typing, and robust error handling in multiple enterprise applications."
       ],
       technologies: ["Angular", "Node.js", ".NET Core", "PostgreSQL", "SSRS"],
-      projectImage: "/assets/images/projects/vms.jpg",
+      projectImage: "/assets/images/projects/vms-home.png",
       projectName: "Vehicle Management System"
     }
   ];
@@ -104,7 +104,7 @@ const WorkExperience:React.FC = () => {
                 <div className="px-6 pb-6 pt-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Project Image */}
-                    <div className="bg-gray-800 rounded-lg overflow-hidden">
+                    <div className="bg-slate-900 rounded-lg overflow-hidden">
                       <div className="relative pt-[60%]">
                         <img 
                           src={exp.projectImage} 

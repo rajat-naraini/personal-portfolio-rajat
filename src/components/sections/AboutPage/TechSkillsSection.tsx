@@ -10,46 +10,47 @@ const TechSkills:React.FC = () => {
       title: 'Frontend',
       description: 'Building responsive, accessible, and performant user interfaces',
       skills: [
-        { name: 'Angular', proficiency: 90, years: 5, image: '/assets/images/skills/angular.svg' },
-        { name: 'React', proficiency: 85, years: 4, image: '/assets/images/skills/react.svg' },
-        { name: 'Next.js', proficiency: 80, years: 2, image: '/assets/images/skills/nextjs.svg' },
-        { name: 'TypeScript', proficiency: 90, years: 5, image: '/assets/images/skills/typescript.svg' },
-        { name: 'HTML/CSS', proficiency: 95, years: 5, image: '/assets/images/skills/html.svg' },
-        { name: 'Tailwind CSS', proficiency: 85, years: 3, image: '/assets/images/skills/tailwind.svg' },
-        { name: 'Bootstrap', proficiency: 90, years: 5, image: '/assets/images/skills/bootstrap.svg' },
-        { name: 'ShadCN UI', proficiency: 75, years: 1, image: '/assets/images/skills/shadcn.svg' },
+        { name: 'Angular', proficiency: 90, years: 5, image: '/assets/icons/angular.png' },
+        { name: 'React', proficiency: 85, years: 4, image: '/assets/icons/react.png' },
+        { name: 'Next.js', proficiency: 80, years: 2, image: '/assets/icons/nextjs.png' },
+        { name: 'TypeScript', proficiency: 90, years: 5, image: '/assets/icons/typescript.png' },
+        { name: 'HTML/CSS', proficiency: 95, years: 5, image: '/assets/icons/html.png' },
+        { name: 'Tailwind CSS', proficiency: 85, years: 3, image: '/assets/icons/tailwind.png' },
+        { name: 'Bootstrap', proficiency: 90, years: 5, image: '/assets/icons/bootstrap.png' },
+        { name: 'ShadCN UI', proficiency: 75, years: 1, image: '/assets/icons/shadcn.png' },
       ]
     },
     backend: {
       title: 'Backend',
       description: 'Creating robust APIs and server-side applications',
       skills: [
-        { name: 'Node.js', proficiency: 85, years: 5, image: '/assets/images/skills/nodejs.svg' },
-        { name: 'Express.js', proficiency: 85, years: 5, image: '/assets/images/skills/express.svg' },
-        { name: 'Java', proficiency: 75, years: 3, image: '/assets/images/skills/java.svg' },
-        { name: 'Spring Boot', proficiency: 75, years: 3, image: '/assets/images/skills/spring.svg' },
-        { name: '.NET Core', proficiency: 70, years: 2, image: '/assets/images/skills/dotnet.svg' },
-        { name: 'RESTful APIs', proficiency: 90, years: 5, image: '/assets/images/skills/api.svg' },
+        { name: 'Node.js', proficiency: 85, years: 5, image: '/assets/icons/nodejs.png' },
+        { name: 'Express.js', proficiency: 85, years: 5, image: '/assets/icons/express.png' },
+        { name: 'Java', proficiency: 75, years: 3, image: '/assets/icons/java.png' },
+        { name: 'Spring Boot', proficiency: 75, years: 3, image: '/assets/icons/springboot.png' },
+        { name: '.NET Core', proficiency: 70, years: 2, image: '/assets/icons/dotnet.png' },
+        { name: 'RESTful APIs', proficiency: 90, years: 5, image: '/assets/icons/rest.png' },
       ]
     },
     database: {
       title: 'Database',
       description: 'Designing and optimizing database systems',
       skills: [
-        { name: 'PostgreSQL', proficiency: 85, years: 5, image: '/assets/images/skills/postgresql.svg' },
-        { name: 'MSSQL', proficiency: 80, years: 4, image: '/assets/images/skills/mssql.svg' },
-        { name: 'MySQL', proficiency: 75, years: 3, image: '/assets/images/skills/mysql.svg' },
-        { name: 'SSRS', proficiency: 70, years: 3, image: '/assets/images/skills/ssrs.svg' },
+        { name: 'PostgreSQL', proficiency: 85, years: 5, image: '/assets/icons/postgresql.png' },
+        { name: 'MSSQL', proficiency: 80, years: 4, image: '/assets/icons/mssql.png' },
+        { name: 'MySQL', proficiency: 75, years: 3, image: '/assets/icons/mysql.svg' },
+        { name: 'MongoDB', proficiency: 70, years: 3, image: '/assets/icons/mongodb.svg' },
+        { name: 'SSRS', proficiency: 80, years: 3, image: '/assets/icons/ssrs.png' },
       ]
     },
     devops: {
       title: 'DevOps & Tools',
       description: 'Streamlining deployment and development workflows',
       skills: [
-        { name: 'AWS', proficiency: 75, years: 2, image: '/assets/images/skills/aws.svg' },
-        { name: 'CI/CD', proficiency: 80, years: 3, image: '/assets/images/skills/cicd.svg' },
-        { name: 'Git', proficiency: 90, years: 5, image: '/assets/images/skills/git.svg' },
-        { name: 'Docker', proficiency: 65, years: 2, image: '/assets/images/skills/docker.svg' },
+        { name: 'AWS', proficiency: 75, years: 2, image: '/assets/icons/aws.png' },
+        { name: 'CI/CD', proficiency: 80, years: 3, image: '/assets/icons/cicd.png' },
+        { name: 'Git', proficiency: 90, years: 5, image: '/assets/icons/git.png' },
+        { name: 'Docker', proficiency: 65, years: 2, image: '/assets/icons/docker.png' },
       ]
     }
   };

@@ -9,8 +9,8 @@ const ExperienceSection: React.FC = () => {
     {
       id: 1,
       company: "XLSoftek.Inc",
-      position: "Software Developer",
-      period: "JUN 2024 - Present",
+      position: "Senior Full-Stack Developer",
+      period: "JUL 2024 - Present",
       achievements: [
         "Developed a custom CSV parser in Node.js to streamline data processing and storage in the database.",
         "Built a responsive front-end with Next.js (v14), integrating ShadCN UI components and AWS Cognito for secure authentication.",
@@ -18,38 +18,42 @@ const ExperienceSection: React.FC = () => {
       ],
       technologies: ["Next.js", "Node.js", "AWS", "ShadCN UI", "CI/CD"],
       current: true,
-      projectImage: "/assets/images/projects/clientfinder.jpg",
-      projectName: "ClientFinder"
+      projectImage: "/assets/images/projects/clientfinder-home.png",
+      projectName: "ClientFinder",
+      isFeatured: true
     },
     {
       id: 2,
       company: "National Informatics Centre",
-      position: "Software Developer",
-      period: "OCT 2019 - JUN 2024",
+      position: "Lead Developer (Full-Stack)",
+      period: "JUN 2021 - JUN 2024",
       achievements: [
         "Led the development and migration of state government projects, including the redesign of the MyOffice app, migration of the VMS (Vehicle Management System) from Angular 4 to Angular 13, and backend transition from Node.js to .NET Core 6.",
-        "Developed and integrated critical modules for IFMS (Integrated Financial Management System) and CEI (Chief Electrical Inspector) projects using Angular, Node.js, and PostgreSQL.",
+        "Developed and integrated critical modules for IFMS (Integrated Financial Management System).",
         "Enhanced system modularity and maintainability by implementing specialized services, strict typing, and robust error handling in multiple enterprise applications."
       ],
       technologies: ["Angular", "Node.js", ".NET Core", "PostgreSQL", "SSRS"],
       current: false,
-      projectImage: "/assets/images/projects/vms.jpg",
-      projectName: "Vehicle Management System"
+      projectImage: "/assets/images/projects/vms-home.png",
+      projectName: "Vehicle Management System",
+      isFeatured: true
     },
     {
       id: 3,
       company: "National Informatics Centre",
-      position: "Software Developer",
-      period: "OCT 2019 - JUN 2024",
+      position: "Software Developer (Frontend & Backend)",
+      period: "OCT 2019 - JUN 2021",
       achievements: [
-        "Led the development and migration of state government projects, including the redesign of the MyOffice app, migration of the VMS (Vehicle Management System) from Angular 4 to Angular 13, and backend transition from Node.js to .NET Core 6.",
-        "Developed and integrated critical modules for IFMS (Integrated Financial Management System) and CEI (Chief Electrical Inspector) projects using Angular, Node.js, and PostgreSQL.",
-        "Enhanced system modularity and maintainability by implementing specialized services, strict typing, and robust error handling in multiple enterprise applications."
+        "Developed the Licensing Module for the Chief Electrical Inspector (CEI) using Angular 8, enabling efficient registration and management of electrical contractors.",
+        "Implemented a role-based authentication system with secure REST APIs using Node.js and Express, ensuring proper access control for different user types.",
+        "Created responsive UI components with Angular Material, improving user experience and accessibility across desktop and mobile devices.",
+        "Designed and optimized PostgreSQL database queries for storing contractor information and license documentation."
       ],
-      technologies: ["Angular", "Node.js", ".NET Core", "PostgreSQL", "SSRS"],
+      technologies: ["Angular 8", "Node.js", "Express.js", "PostgreSQL", "Angular Material"],
       current: false,
-      projectImage: "/assets/images/projects/vms.jpg",
-      projectName: "Vehicle Management System"
+      projectImage: "/assets/images/projects/cei-home.png",
+      projectName: "Chief Electrical Inspector (CEI)",
+      isFeatured: true
     }
   ];
 
@@ -109,7 +113,9 @@ const ExperienceSection: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
                       <div className="absolute bottom-3 left-3">
                         <h4 className="text-lg font-medium text-white">{exp.projectName}</h4>
-                        <p className="text-sm text-emerald-400">Featured project</p>
+                        {exp.isFeatured && (
+                          <p className="text-sm text-emerald-400">Featured project</p>
+                        )}
                       </div>
                     </div>
 
