@@ -3,7 +3,7 @@ import ProfessionalSummary from '../components/sections/AboutPage/ProfessionalSu
 import WorkExperience from '../components/sections/AboutPage/WorkExperienceSection';
 import TechSkills from '../components/sections/AboutPage/TechSkillsSection';
 import Education from '../components/sections/AboutPage/EducationSection';
-import Testimonials from '../components/sections/AboutPage/TestimonialSection';
+// import Testimonials from '../components/sections/AboutPage/TestimonialSection';
 
 interface AboutProps {
   title?: string;
@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = () => {
       <WorkExperience />
       <TechSkills />
       <Education />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </>
   );
 };
