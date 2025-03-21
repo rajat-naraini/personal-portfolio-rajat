@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Instagram, Linkedin, Facebook, ArrowUp, Github } from 'lucide-react';
+import { Instagram, Linkedin, ArrowUp, Github } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
