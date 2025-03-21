@@ -29,5 +29,8 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/  # adjust this to your build output directory (e.g., 'build/' for CRA)
-        server-dir: /public_html/  # or your specific directory on Hostinger
+        local-dir: ./dist/  # adjust this to your build output directory
+        server-dir: /domains/rajatnaraini.com/public_html/  # updated path
+        protocol: ftp
+        port: 21
+        dangerous-clean-slate: false  # prevents deleting existing files
