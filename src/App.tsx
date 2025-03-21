@@ -6,21 +6,24 @@ import Projects from './pages/ProjectsPage'
 import Contact from './pages/ContactPage'
 import NotFound from './pages/NotFoundPage'
 import Layout from './components/layout/Layout'
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
 
   return (
-    <Router>
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
-  </Router>
+    <HelmetProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </HelmetProvider>
   )
 }
 
