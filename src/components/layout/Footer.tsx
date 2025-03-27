@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
             <Link to="/about" className="hover:text-gray-300 transition-colors">
               About Me
             </Link>
-            <a href="/path/to/your/resume.pdf" download className="hover:text-gray-300 transition-colors">
+            <a href="/assets/documents/rajatnaraini_resume.pdf" download className="hover:text-gray-300 transition-colors">
               Resume
             </a>
             <Link to="/contact" className="hover:text-gray-300 transition-colors">
