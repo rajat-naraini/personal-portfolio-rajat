@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+// Initialize EmailJS with your public key
+import React, { useState, useRef } from 'react';
 import { Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '');
 
 interface FormData {
   name: string;
@@ -15,6 +18,7 @@ interface FormErrors {
 }
 
 const ContactFormSection: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -93,11 +97,29 @@ const ContactFormSection: React.FC = () => {
     setSubmitStatus(null);
     
     try {
-      // This is where you would normally make an API call
-      // For example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+      // Hardcoded values for testing - replace with your actual values 
+      // Once everything works, you can move these back to env variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
       
-      // Simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Prepare template parameters directly
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject || "No Subject",
+        message: formData.message
+      };
+      
+      // Use send method instead of sendForm
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      
+      console.log('Email sent successfully:', result.text);
       
       // Clear form on success
       setFormData({
@@ -109,7 +131,7 @@ const ContactFormSection: React.FC = () => {
       
       setSubmitStatus('success');
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error sending email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -120,7 +142,7 @@ const ContactFormSection: React.FC = () => {
     <div className="bg-gray-900 p-8 rounded-xl border border-gray-800 h-full">
       <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
       
-      <form onSubmit={handleSubmit}>
+      <form ref={form} onSubmit={handleSubmit}>
         <div className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-gray-300 mb-2">

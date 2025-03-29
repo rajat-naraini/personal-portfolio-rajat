@@ -39,13 +39,13 @@ const Footer: React.FC = () => {
 
           {/* Navigation */}
           <div className="flex items-center space-x-8 mb-4 md:mb-0">
-            <Link to="/about" className="hover:text-gray-300 transition-colors">
+            <Link to="/about" onClick={()=> window.scrollTo({top:0, behavior: 'smooth'})} className="hover:text-gray-300 transition-colors">
               About Me
             </Link>
-            <a href="/assets/documents/rajatnaraini_resume.pdf" download className="hover:text-gray-300 transition-colors">
+            <a href="/assets/documents/rajatnaraini_resume.pdf" target='_blank'  className="hover:text-gray-300 transition-colors">
               Resume
             </a>
-            <Link to="/contact" className="hover:text-gray-300 transition-colors">
+            <Link to="/contact" onClick={()=> window.scrollTo({top:0, behavior: 'smooth'})} className="hover:text-gray-300 transition-colors">
               Contact
             </Link>
           </div>
