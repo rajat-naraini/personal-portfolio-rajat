@@ -2,7 +2,6 @@
 import React, { useState, useRef } from 'react';
 import { Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '');
 
 interface FormData {
   name: string;
@@ -25,28 +24,28 @@ const ContactFormSection: React.FC = () => {
     subject: '',
     message: ''
   });
-  
+
   const [errors, setErrors] = useState<FormErrors>({
     name: '',
     email: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
-  
+
   const validateEmail = (email: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-    
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
@@ -55,7 +54,7 @@ const ContactFormSection: React.FC = () => {
       }));
     }
   };
-  
+
   const validateForm = (): boolean => {
     let valid = true;
     const newErrors = {
@@ -63,12 +62,12 @@ const ContactFormSection: React.FC = () => {
       email: '',
       message: ''
     };
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
       valid = false;
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
       valid = false;
@@ -76,60 +75,63 @@ const ContactFormSection: React.FC = () => {
       newErrors.email = 'Please enter a valid email';
       valid = false;
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
       valid = false;
     }
-    
+
     setErrors(newErrors);
     return valid;
   };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
       // Hardcoded values for testing - replace with your actual values 
       // Once everything works, you can move these back to env variables
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
-      
-      // Prepare template parameters directly
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject || "No Subject",
-        message: formData.message
-      };
-      
-      // Use send method instead of sendForm
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
-      );
-      
-      console.log('Email sent successfully:', result.text);
-      
-      // Clear form on success
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      setSubmitStatus('success');
+      const config = (window as any).runtimeConfig?.emailjs || {};
+
+      if (!config.serviceId || !config.templateId || !config.publicKey) {
+        console.error('EmailJS configuration missing or incomplete');
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Initialize EmailJS with the public key from runtime config
+      if (config.publicKey) {
+        emailjs.init(config.publicKey);
+      }
+
+      if (form.current) {
+        const result = await emailjs.sendForm(
+          config.serviceId,
+          config.templateId,
+          form.current,
+          config.publicKey
+        );
+
+        console.log('Email sent successfully:', result.text);
+
+        // Clear form on success
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+
+        setSubmitStatus('success');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
@@ -141,7 +143,7 @@ const ContactFormSection: React.FC = () => {
   return (
     <div className="bg-gray-900 p-8 rounded-xl border border-gray-800 h-full">
       <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
-      
+
       <form ref={form} onSubmit={handleSubmit}>
         <div className="space-y-6">
           <div>
@@ -159,7 +161,7 @@ const ContactFormSection: React.FC = () => {
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
-          
+
           <div>
             <label htmlFor="email" className="block text-gray-300 mb-2">
               Your Email <span className="text-emerald-400">*</span>
@@ -175,7 +177,7 @@ const ContactFormSection: React.FC = () => {
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
-          
+
           <div>
             <label htmlFor="subject" className="block text-gray-300 mb-2">
               Subject
@@ -195,7 +197,7 @@ const ContactFormSection: React.FC = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          
+
           <div>
             <label htmlFor="message" className="block text-gray-300 mb-2">
               Your Message <span className="text-emerald-400">*</span>
@@ -211,16 +213,15 @@ const ContactFormSection: React.FC = () => {
             ></textarea>
             {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
           </div>
-          
+
           <div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full rounded-lg px-4 py-3 flex items-center justify-center font-medium transition-colors ${
-                isSubmitting 
-                  ? 'bg-gray-700 text-gray-400 cursor-not-allowed' 
-                  : 'bg-emerald-600 hover:bg-emerald-700 text-white'
-              }`}
+              className={`w-full rounded-lg px-4 py-3 flex items-center justify-center font-medium transition-colors ${isSubmitting
+                ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                }`}
             >
               {isSubmitting ? (
                 <>
@@ -240,7 +241,7 @@ const ContactFormSection: React.FC = () => {
           </div>
         </div>
       </form>
-      
+
       {/* Success/Error Messages */}
       {submitStatus === 'success' && (
         <div className="mt-6 p-4 bg-green-900/30 border border-green-500/30 rounded-lg text-green-400">
@@ -248,7 +249,7 @@ const ContactFormSection: React.FC = () => {
           <p className="text-sm mt-1">Thank you for reaching out. I'll get back to you as soon as possible.</p>
         </div>
       )}
-      
+
       {submitStatus === 'error' && (
         <div className="mt-6 p-4 bg-red-900/30 border border-red-500/30 rounded-lg text-red-400">
           <p className="font-medium">Error sending message</p>
